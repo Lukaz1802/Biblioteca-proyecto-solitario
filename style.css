@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel-inner img{
+
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+#carousel{
+
+    position: relative;
+}
+
+.overlay{
+    z-index:1;
+    position: absolute;
+    top: 0px;
+    left:0;
+    right:0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(253, 253, 253);
+    }
+
+    .overlay h1{
+        font-size: 80px;
+    }
+
+    .overlay h2{
+        
+        font-size: 30px;
+        
+    }
