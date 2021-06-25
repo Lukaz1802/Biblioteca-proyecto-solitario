@@ -55,28 +55,34 @@ function updateDatos(){
     
 }
 
-function cargarTabla(){
-    cuerpoTabla.innerHTML = "";
-    comics = JSON.parse(localStorage.getItem("comics")) || []
-    comics.forEach(function(comic, index){
-        let fila = document.createElement("tr");
-        let datos = `
-        <th scope="row">${comic.nombre}</th>
-        <td>${comic.editorial}</td>
-        <td>${comic.numero}</td>
-        <td>${comic.año}</td>
-        <td>${comic.superheroe}</td>
-        <td>
-        <button class="btn btn-warning" onclick='verComic(${index})'>Ver</button>
-        <button class="btn btn-danger" onclick='borrarComic(${index})'>X</button>
-        <button class="btn btn-danger" onclick='(${index})'>Destacar</button>
 
-        </td>
-        `;
-        fila.innerHTML = datos;
-        cuerpoTabla.appendChild(fila);
-    })
+function updateBaul(){
+    comics = JSON.parse(localStorage.getItem("comics"))
+    cargarTabla(comics)
 }
+
+
+function cargarTabla(array) {
+    cuerpoTabla.innerHTML = "";
+    //   comics = JSON.parse(localStorage.getItem("comics")) || [];
+    array.forEach(function (comic, index) {
+      let fila = document.createElement("tr");
+      let datos = `
+          <th scope="row">${comic.nombre}</th>
+          <td>${comic.editorial}</td>
+          <td>${comic.numero}</td>
+          <td>${comic.año}</td>
+          <td>${comic.superheroe}</td>
+          <td>
+          <button class="btn btn-warning" onclick='verComic(${index})'>Ver</button>
+          <button class="btn btn-danger" onclick='borrarComic(${index})'>X</button>
+          <button class="btn btn-danger" onclick='(${index})'>Destacar</button>
+          </td>
+          `;
+      fila.innerHTML = datos;
+      cuerpoTabla.appendChild(fila);
+    });
+  }
 
 function verComic(id){
 document.querySelector("#tittle_modal").innerText=comics[id].nombre
@@ -106,23 +112,25 @@ function filterBaul(){
 
 
 function borrarComic(id){
-    comic=comics[id]
 
-    let validar = confirm(`Esta seguro que quiere borrar ${comic.nombre} ?`)
-    if(validar){
-        comics.splice(id,1)
-        localStorage.setItem('comics', JSON.stringify(comics))
+    let baulTotal= JSON.parse(localStorage.getItem("comics"))
 
-        alert(`Se borro el comic ${comic.nombre}`);
-        cargarTabla();
-    }
+    let index=baulTotal.findIndex(function(comic){
+        return comic.nombre === comics[id].nombre;
+    })
+console.log(index);
+
+let validar = confirm('Esta seguro que quiere borrar el comic del Baul?')
+if(validar){
+    baulTotal.splice(index,1)
+    localStorage.setItem('comics', JSON.stringify(baulTotal))
+
+    updateBaul()
+}
 }
 
 
 
-  
-
-
 if(cuerpoTabla){
-    cargarTabla();
+    cargarTabla(comics);
 }
