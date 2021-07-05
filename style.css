@@ -1,67 +1,24 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+@media (max-width: 768px) { #imagen-logo{
+    width: 200px;
+} }
+
+@media (max-width: 768px) { #img-featurette {
+ width: 200px;
+} }
+
+@media (max-width: 768px){ #img-featurette-edi{
+    width: 250px;
+}
 }
 
-
-
-body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
+@media (max-width: 1024px){ #img-featurette-edi{
+    width: 250px;
+}
 }
 
-
-
-.carousel {
-  margin-bottom: 4rem;
+@media (min-width: 1024px){ #img-featurette-edi{
+    width: 450px;
 }
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-  color: rgb(250, 250, 250);
 }
-
-
-.carousel-item {
-  height: 32rem;
-}
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
-}
-
-
-
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  color:black;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-
-
-
-.featurette-divider {
-  margin: 5rem 0; 
-}
-
-
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
-}
-
-
-

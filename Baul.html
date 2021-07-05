@@ -7,37 +7,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./ComicsCards.css">
+    <title>Baul</title>
 
     </head>
     <body>
        <div class="container text-center">
         <img id="imagen-logo" src="./recursos/LOGO_Final.png" width="500px" alt="">
        </div>
-       <header>
+    <header>
         <div class="container py-3">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                   <div class="container mr-auto text-center">
-                      
+                           
                     <ul class="navbar-nav ">
-<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Login
-</button>                      <li class="nav-item">
+                      <button type="button" class="btn btn-dark" data-bs-toggle="modal"  data-bs-target="#exampleModal">
+                        Login
+                      </button>                      <li class="nav-item">
+                   
     
-                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                        <a class="nav-link " aria-current="page" href="./index.html">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="./Baul.html">Buscar Comic</a>
+                        <a class="nav-link active" href="#">Buscar Comic</a>
                       </li>
                       <li class="nav-item" id="linkAdmin">
-
+                        <!-- <a class="nav-link" href="./agregar.html">Agregar Comic</a> -->
                       </li>
                       <li class="nav-item" id="linkAdmin2">
 
                       </li>
-                      
                     </ul>
+                    
                     
                   </div>
                 </div>
@@ -47,58 +49,91 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                <h1>Agregar Comic</h1>
-                <hr />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-md-6 offset-md-3">
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title">Ingrese los datos del Comic</h5>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label>Nombre del Comic</label>
-                      <input type="text" class="form-control" id="nombreText" />
-                    </div>
-                    <div class="form-group">
-                      <label>Editorial</label>
-                      <input type="text" class="form-control" id="editorialText" />
-                    </div>
-                    <div class="form-group">
-                        <label>Año</label>
-                        <input type="text" class="form-control" id="numeroText" />
-                      </div>
-                      <div class="form-group">
-                        <label>Categoria</label>
-                        <input type="text" class="form-control" id="añoText" />
-                      </div>
-                      <div class="form-group">
-                        <label>Número</label>
-                        <input type="text" class="form-control" id="superheroeText" />
-                      </div>
-                      <div class="form-group">
-                        <label>Sinopsis</label>
-                        <input type="text" class="form-control" id="sinopsisText" />
-                      </div>
-                      <div class="form-group">
-                        <label>Caratula</label>
-                        <input type="text" class="form-control" id="caratulaText" />
-                      </div>
-                    <div class="d-flex justify-content-end">
-                      <button class="btn btn-info" onclick="addComic()">
-                        Guardar
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </main>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col">
+            <h1 class="text-center">Baul de Comics</h1>
+            <hr />
+          </div>
+        </div>
+
+
+<div class="container">
+ 
+
+
+  <div class="container">
+    <div class="row row-cols-2 row-cols-md-4 g-4" id="contenComics">
+     
+
+    </div>
+<br/>
+
+
+                              
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="comicsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="tittle_modal">Modal title</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    <!-- Card -->
+    <div class="card mb-3" >
+      <div class="row no-gutters">
+        <div class="col-md-4 pt-3 ">
+          <img id="imagen_heroe" src="" alt="imagen-comic" width="150px" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Editorial: </strong><span id="text_editorial"></span>
+            </p>
+            <p class="card-text">
+              <strong>Año: </strong><span id="text_numero"></span>
+            </p>
+            <p class="card-text">
+              <strong>Categoria: </strong><span id="text_año"></span>
+            </p>
+            <p class="card-text">
+              <strong>Número: </strong><span id="text_superheroe"></span>
+            </p>
+            <p class="card-text">
+              <strong>Sinopsis: </strong><span id="text_sinopsis"></span>
+            </p>
+            <button type="button" class="btn btn-success" onclick="Alquilar()">Alquilar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- fin card -->   
+  
+  
+  
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  <!--Termina modal de ver Comic-->
+
+
+    </main>
+  
 <footer class="container text-center">
   <h3>Siguenos en nuestras redes: </h3>
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -119,10 +154,20 @@
 </footer>
  
   
-  
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"
+></script>
+
       
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./ComicsCards.js"></script>
+    <script src="./login.js"></script>
+    <script src="./admin.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
       let usuarios=JSON.parse(localStorage.getItem('usuarios')) || null
       if(!usuarios){
@@ -142,9 +187,41 @@
       }
     </script>
     
-    <script src="./login.js"></script>
-    <script src="./admin.js"></script>
-    <script src="./agregar.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleSubmit(event)">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" id="userEmail" placeholder="Ingresa tu email *" onchange="handleChange(event)" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="contrasena" id="userContrasena" placeholder="Ingresa tu contraseña *" onchange="handleChange(event)">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Registrarse</button>
+      </div>
+    </div>  
+  </div>
+</div>
   </html>

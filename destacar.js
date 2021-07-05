@@ -1,1 +1,0 @@
-let comics = JSON.parse(localStorage.getItem("comics"))
